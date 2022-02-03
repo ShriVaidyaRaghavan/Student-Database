@@ -1,14 +1,18 @@
 package StudentJDBC;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.RestController;
+@RestController
 public class StudentJDBC extends Student {
 
 	public static void main(String[] args) throws Exception {
@@ -22,7 +26,7 @@ public class StudentJDBC extends Student {
 		Emp.add(student);
 		}
 		
-        //Collections.sort(Emp);
+        Collections.sort(Emp, new Student());
 	    System.out.print(Emp);
 
 	}

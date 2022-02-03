@@ -1,7 +1,15 @@
 package StudentJDBC;
 
+import java.util.Comparator;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-public class Student {	 	
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@Entity
+public class Student implements Comparator<Student>{	
+	   @Id
 	   private int S_id;
 	   private String S_name;
 	   private int S_age;
@@ -50,10 +58,16 @@ public class Student {
 	public void setMarks(int marks) {
 		Marks = marks;
 	}
-	
 	@Override
 	public String toString() {
 		return "Name: " + S_name + ", Marks: " + Marks;
+	}
+	
+
+	@Override
+	public int compare(Student o1, Student o2) {
+		// TODO Auto-generated method stub
+		return o1.getS_name().compareTo(o2.getS_name()); 
 	}
 	
 }
